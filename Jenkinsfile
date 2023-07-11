@@ -43,7 +43,7 @@ pipeline {
         script{
           sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
 
-          docker.writeRegistry("https://${ECR_REPOSITORY}", "ecr:${RESION}:${AWS_CREDNETIALS_NAME}") {
+          docker.withRegistry("https://${ECR_REPOSITORY}", "ecr:${RESION}:${AWS_CREDNETIALS_NAME}") {
             docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_TAG}").push()
           }
         }
