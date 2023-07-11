@@ -17,11 +17,18 @@ pipeline {
       post{
         success{
           junit '**/target/surefire-reports/TEST-*.xml'
+        }
+      }
+    }
+    
+    stage('Docker Image Build') {
+      steps {
+        dir("${env.WORKSPACE}") {
+          sh 'docker build -t aws07-spring-petclinic:1.0 .'
+        }
       }
     }
 
-
     
-    }
   }
 }
