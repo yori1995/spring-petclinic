@@ -7,7 +7,7 @@ pipeline {
   stages{
     stage('Git Clone') {
       steps{
-        git url 'https://github.com/yori1995/spring-petclinic.git', branch: 'efficient-webjars', credentialsID: 'gitCredentials'
+        git url 'https://github.com/yori1995/spring-petclinic.git', branch: 'efficient-webjars', credentialsId: 'gitCredentials'
       }
     }
   }
